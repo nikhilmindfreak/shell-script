@@ -1,6 +1,6 @@
 #!bin/bash
 
-MOVIES=( "RRR" "DJ tIllu" "murari")
+MOVIES=("RRR" "DJ tIllu" "murari")
 
 # size of above array is 3 but
 
@@ -10,8 +10,6 @@ MOVIES=( "RRR" "DJ tIllu" "murari")
 
 # in varibales even if you dont give {} its fine but in array you have to give {} beacuse later we input []
 
-echo "first move is":${MOVIES[0]}"
-
-echo "first move is":${MOVIES[@]}"  
-
-echo "first move is":${MOVIES[0]}"
+echo "First movie is:${MOVIES[0]}"
+echo "First movie is:${MOVIES[@]}"  
+echo "First movie is:${MOVIES[0]}"
