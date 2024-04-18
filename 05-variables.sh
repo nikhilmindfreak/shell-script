@@ -2,10 +2,10 @@
 
 echo "please enetr username"
 
-read USERNAME  #here USERNAME is varioable
+read -s USERNAME  #here USERNAME is varioable, -s is used to hide whhat you write in linux
 
 echo "please enter password::"
 
-read PASSWORD
+read -s PASSWORD
 
 echo "username is : $USERNAME , password is : $PASSWORD"
