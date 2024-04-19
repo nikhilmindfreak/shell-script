@@ -5,12 +5,12 @@ USERID=$(id -u)
 # write a function next to stop repeating the validation, then you can write condition, loop or anything
 
 VALIDATE(){
-if [ $1 -ne 0]
+if [ $1 -ne 0 ]
 then 
     echo "$2.....failure"
     exit 1
 else
-    echo "$2 ..........success "  
+    echo "$2 ..........success"  
 fi
 }
 
@@ -22,7 +22,7 @@ else
     echo "you are super user"
 fi
 
-dnf install mysqll -y 
+dnf install mysql -y 
 VALIDATE $? "Installing Mysql"
 
 dnf install git -y
