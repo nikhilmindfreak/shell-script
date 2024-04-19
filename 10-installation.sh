@@ -9,5 +9,4 @@ else
 echo "you are super user"
 if
 
-
 dnf install mysql -y 
