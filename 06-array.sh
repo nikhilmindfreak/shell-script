@@ -10,6 +10,6 @@ MOVIES=("RRR" "DJ tIllu" "murari")
 
 # in varibales even if you dont give {} its fine but in array you have to give {} beacuse later we input []
 
-echo "First movie is:${MOVIES[0]}
-echo "First movie is:${MOVIES[@]}
+echo "First movie is:${MOVIES[0]}"
+echo "First movie is:${MOVIES[@]}"
 echo "First movie is:${MOVIES[0]}"
