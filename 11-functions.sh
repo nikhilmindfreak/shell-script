@@ -4,7 +4,7 @@ USERID=$(id -u)
 
 # write a function next to stop repeating the validation, then you can write condition, loop or anything
 
-validate(){
+VALIDATE(){
 if [ $1 -ne 0]
 then 
     echo "$2.....failure"
@@ -18,11 +18,14 @@ if [ $USERID -ne 0 ]
 then
     echo "please run this script with root acccess"
     exit 1 
+else
     echo "you are super user"
 fi
 
 dnf install mysqll -y 
+VALIDATE $? "Installing Mysql"
 
 dnf install git -y
+VALIDATE $? "Installing Git"
 
 echo " is script proceeding"
