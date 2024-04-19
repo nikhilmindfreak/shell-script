@@ -1,6 +1,6 @@
 #!/bin/bash
 
-USERID=$(id -u) 
+USERID=$(id -u)
 
 # write a function next to stop repeating the validation, then you can write condition, loop or anything
 
@@ -25,7 +25,6 @@ fi
 dnf install mysql -y 
 VALIDATE $? "Installing Mysql"
 
-dnf install git -y
+dnf install git -y 
 VALIDATE $? "Installing Git"
 
-echo " is script proceeding"
