@@ -9,6 +9,7 @@ echo "Which user is running this script: $USER"
 echo "Hostname: $HOSTNAME"
 echo "Process ID of the current shell script: $$"
 echo "Process ID of last background command: $!"
+echo "exit status of previous command: $? "
 
 # $@ is the symobol to print all variables , only @ is used to print everything
 # $# is the symbol to print how many variables, # is nothing but notation of number
