@@ -1,6 +1,8 @@
 #!/bin/bash
 
-USERID=$(id -u) # shell check condition the id and give to variable userid then write if condintion
+USERID=$(id -u) 
+
+# shell check condition the id and give to variable userid then write if condintion
 
 if [ $USERID -ne 0 ]
 then
