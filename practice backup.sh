@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Define source and backup directories
-source_directory="/path/to/source_directory"
-backup_directory="/path/to/backup_directory"
+source_directory="/c/users/security/nikhil/repos"
+backup_directory="/c/users/security/nikhil/repos"
 
 # Check if source directory exists
 if [ ! -d "$source_directory" ]; then
