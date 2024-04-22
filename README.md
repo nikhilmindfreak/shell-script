@@ -1,3 +1,3 @@
-# shell-script
+# shell-script practice
 
 
