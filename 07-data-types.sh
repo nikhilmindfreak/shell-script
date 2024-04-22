@@ -3,7 +3,7 @@
 NO1=$1
 NO2=$2
 
-SUM=$(($NO1+$NO2))
+SUM=$(($1+$2))
 
 echo "total of $NO1 and $NO2 is: $SUM"
 
@@ -11,4 +11,4 @@ echo "total of $NO1 and $NO2 is: $SUM"
 # we are doing arthamtic operators here
 # # when we $ the shell treats as an expression
 # $1 and $2 is the outside passing argument
-# if you give 0 and nikhil the shells reponds with answer 0 as it tell differnce in name and numbers
+# if you give 0 and nikhil the shells reponds with answer 0 as shell knows differnce in name and numbers
