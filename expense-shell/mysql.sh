@@ -8,6 +8,8 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
+echo "Please enter DB password:"
+read -s mysql_root_password
 
 VALIDATE(){
    if [ $1 -ne 0 ]
@@ -27,15 +29,25 @@ else
     echo "You are super user."
 fi
 
-for i in $@
-do
-    echo "package to install: $i"
-    dnf list installed $i &>>$LOGFILE
-    if [ $? -eq 0 ]
-    then
-        echo -e "$i already installed...$Y SKIPPING $N"
-    else
-        dnf install $i -y &>>$LOGFILE
-        VALIDATE $? "Installation of $i"
-    fi
-done
+
+dnf install mysql-server -y &>>$LOGFILE
+VALIDATE $? "Installing MySQL Server"
+
+systemctl enable mysqld &>>$LOGFILE
+VALIDATE $? "Enabling MySQL Server"
+
+systemctl start mysqld &>>$LOGFILE
+VALIDATE $? "Starting MySQL Server"
+
+# mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOGFILE
+# VALIDATE $? "Setting up root password"
+
+#Below code will be useful for idempotent nature
+mysql -h db.daws78s.online -uroot -p${mysql_root_password} -e 'show databases;' &>>$LOGFILE
+if [ $? -ne 0 ]
+then
+    mysql_secure_installation --set-root-pass ${mysql_root_password} &>>$LOGFILE
+    VALIDATE $? "MySQL Root password Setup"
+else
+    echo -e "MySQL Root password is already setup...$Y SKIPPING $N"
+fi
