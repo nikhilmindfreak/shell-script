@@ -37,11 +37,8 @@ VALIDATE $? "Enabling MySQL Server"
 systemctl start mysqld &>>$LOGFILE
 VALIDATE $? "Starting MySQL Server"
 
-mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOGFILE
-VALIDATE $? "Setting up root password"
-
 #Below code will be useful for idempotent nature
-mysql -h db.devopsme.online -uroot -pExpenseApp@1 -e 'show databases;' &>>$LOGFILE
+mysql -h db.devopsme.online -uroot -pExpenseApp@1 -e 'show databases;' &>>$LOGFILE  # we can use any command to check
 if [ $? -ne 0 ]
 then
     mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOGFILE
