@@ -21,10 +21,10 @@ VALIDATE(){
 
 if [ $USERID -ne 0 ]
 then
-    echo -e "Please run this script with $G root access $N "
+    echo -e "Please run this script with $R root access $N "
     exit 1 # manually exit if error comes.
 else
-    echo "You are super user."
+    echo -e "You are $g super user $N "
 fi
 
 for i in $@
