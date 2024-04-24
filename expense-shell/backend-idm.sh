@@ -66,12 +66,12 @@ VALIDATE $? "Installing nodejs dependencies"
 
 # manually next step is vim , but is for visual for human for shell script create .sh file backend service and cp the absoulte path
 
-cp /home/ec2-user/shell-script/expense-shell/backend-service /etc/systemd/system/backend-service &>>$LOGFILE
+cp /home/ec2-user/shell-script/expense-shell/backend.service /etc/systemd/system/backend.service &>>$LOGFILE
 VALIDATE $? "copied backend service"
 
 systemctl daemon-reload &>>$LOGFILE
-systemctl start backend-service &>>$LOGFILE
-systemctl enable backend-service &>>$LOGFILE
+systemctl start backend &>>$LOGFILE
+systemctl enable backend &>>$LOGFILE
 VALIDATE $? "Validating- daemon, start-enable-backend"
 
 dnf install mysql -y &>>$LOGFILE
