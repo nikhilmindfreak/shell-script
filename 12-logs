@@ -2,7 +2,7 @@
 
 USERID=$(id -u)
 TIMESTAMP=$(date +%F-%H-%M-%S)  # time stame date (+%F) then time housr and minute
-SCRIPT_NAME=$(echo $0 | cut -d "." -f1)   #after cut -d (delemeter is .)is used to remove files "last .sh extension then f1 "
+SCRIPT_NAME=$(echo $0 | cut -d "." -f1)   #after cut -d (delemeter is .)is used to remove files "last .sh extension then f1 fragmnet 1 "
 LOGFILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log   #
 
 VALIDATE(){
