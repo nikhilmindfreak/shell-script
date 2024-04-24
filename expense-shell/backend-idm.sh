@@ -70,12 +70,12 @@ cp /home/ec2-user/shell-script/expense-shell/backend-service /etc/systemd/system
 VALIDATE $? "copied backend service"
 
 systemctl daemon-reload &>>$LOGFILE
-systemctl start backend &>>$LOGFILE
-systemctl enable backend &>>$LOGFILE
+systemctl start backend-service &>>$LOGFILE
+systemctl enable backend-service &>>$LOGFILE
 VALIDATE $? "Validating- daemon, start-enable-backend"
 
 dnf install mysql -y &>>$LOGFILE
-VALIDATE $? "Tnstalling Mysql client"
+VALIDATE $? "Installing Mysql client"
 
 mysql -h db.devopsme.online -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>$LOGFILE
 #for above use read command and give variables on top beacuse we dont password in open sorce
