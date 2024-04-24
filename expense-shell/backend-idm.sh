@@ -43,4 +43,11 @@ VALIDATE $? "Creating expense user"
 
 # if we repeat the scrpit we get error as we already have "expense user" so use idempotency here
 
-
+id expense &>>$LOGFILE
+if [ $? -ne 0 ]
+then 
+    useradd expense &>>$LOGFILE
+    VALIDATE $? "Creating expense user"
+else
+    echo -e "expense user already created..$Y SKIPPING $N"
+fi
