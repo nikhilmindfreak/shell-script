@@ -38,8 +38,6 @@ VALIDATE $? "Enabling nodejs:20 version"
 dnf install nodejs -y &>>$LOGFILE
 VALIDATE $? "Installing nodejs"
 
-useradd expense
-VALIDATE $? "Creating expense user"
 
 # if we repeat the scrpit we get error as we already have "expense user" so use idempotency here
 
