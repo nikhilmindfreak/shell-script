@@ -43,40 +43,12 @@ VALIDATE $? "Creating expense user"
 
 # if we repeat the scrpit we get error as we already have "expense user" so use idempotency here
 
-id expense
+id expense &>>$LOGFILE
 if [ $? -ne 0 ]
 then 
-    useradd expense
+    useradd expense &>>$LOGFILE
     VALIDATE $? "Creating expense user"
 else
-    echo -e " expense user already created..$Y SKIPPING $N"
+    echo -e "expense user already created..$Y SKIPPING $N"
 fi
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-systemctl enable mysqld &>>$LOGFILE
-VALIDATE $? "Enabling MySQL Server"
-
-systemctl start mysqld &>>$LOGFILE
-VALIDATE $? "Starting MySQL Server"
-
-#Below code will be useful for idempotent nature
-mysql -h db.devopsme.online -uroot -p${mysql_root_password} -e 'show databases;' &>>$LOGFILE  # we can use any command to check
-if [ $? -ne 0 ]
-then
-    mysql_secure_installation --set-root-pass ${mysql_root_password} &>>$LOGFILE
-    VALIDATE $? "MySQL Root password Setup"
-else
-    echo -e "MySQL Root password is already setup...$Y SKIPPING $N"
-fi
