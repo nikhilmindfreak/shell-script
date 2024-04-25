@@ -1,19 +1,6 @@
 #!/bin/bash
 
 SOURCE_DIRECTORY=/tmp/app-logs
-R="\e[31m"
-G="\e[32m"
-Y="\e[33m"
-N="\e[0m"
-
-
-USERID=$(id -u)
-TIMESTAMP=$(date +%F-%H-%M-%S)
-SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
-LOGFILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
-
-
-SOURCE_DIRECTORY=/tmp/app-logs
 
 R="\e[31m"
 G="\e[32m"
@@ -29,6 +16,9 @@ else
 fi
 
 FILES=$(find $SOURCE_DIRECTORY -name "*.log" -mtime +14)
+
+
+# now to delete use loop we have many .log files
 
 while IFS= read -r line
 do
