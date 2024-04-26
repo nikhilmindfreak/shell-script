@@ -1,7 +1,7 @@
 #!/bin/bash
 
 MEM_USAGE=$(free -m | grep Mem:)
-MEM_THRESHOLD=400
+MEM_THRESHOLD=421
 MESSAGE=""
 
 while IFS= read -r line
