@@ -7,7 +7,6 @@ MESSAGE=""
 while IFS= read -r line
 do
     USAGE=$(echo $line | awk -F " " '{print $7F}')
-    FOLDER=$(echo $line | awk -F " " '{print $NF}')
     if [ $USAGE -ge $MEM_THRESHOLD ]
     then
         MESSAGE+="$FOLDER is more than $MEM_THRESHOLD, Current usage: $USAGE \n"
