@@ -9,7 +9,8 @@ do
     USAGE=$(echo $line | awk -F " " '{print $7F}')
     if [ $USAGE -ge $MEM_THRESHOLD ]
     then
-        MESSAGE+="$FOLDER is more than $MEM_THRESHOLD, Current usage: $USAGE \n"
+        MESSAGE="$FOLDER is more than $MEM_THRESHOLD, Current usage: $USAGE"
     fi
 done <<< $MEM_USAGE
 
+echo "Message: $MESSAGE"
