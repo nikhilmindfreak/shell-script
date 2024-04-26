@@ -14,3 +14,5 @@ do
 done <<< $MEM_USAGE
 
 echo "Message: $MESSAGE"
+
+echo "$MESSAGE" | mail -s "Mem Usage Alert" nikhilmindfreak2727@gmail.com
